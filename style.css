@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+}
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+}
+h1 {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  transform: translate(-50%, -0%);
+}
+main {
+  padding: 140px 40px 40px;
+  color: #222;
+  position: absolute;
+  top: 0;
+  left: 200px; /* Adjusted from 0 to 200px */
+  width: calc(
+    100% - 200px
+  ); /* Adjusted width to take into account the navigation menu */
+}
+header {
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  color: #eee;
+  height: 90px;
+}
+.burger {
+  display: relative;
+  font-size: 1.2em;
+  cursor: pointer;
+  z-index: 2;
+}
+.burger span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: #fff;
+  margin-bottom: 5px;
+}
+nav {
+  background: #222;
+  padding: 20px;
+  padding-top: 80px;
+  height: 100%;
+  box-sizing: border-box;
+  width: 220px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  left: -220px;
+  opacity: 0.8;
+}
+nav a {
+  color: #fff;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.2em;
+}
+nav.open {
+  left: 0;
+}
+.burger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(10px);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
+}
+img {
+  width: 100%;
+}
+nav {
+  transition: left ease-in 0.4s;
+}
+li {
+  text-align: center;
+  margin-bottom: 20px;
+}
+@media (max-width: 500px) {
+  main {
+    left: 0; /* Remove the left offset */
+    width: 100%; /* Set the width to 100% */
+    z-index: 0;
+  }
+
+  nav {
+    left: -500px; /* Hide the navigation menu off-screen */
+    width: 100%;
+  }
+
+  nav.open {
+    left: 0; /* Bring the navigation menu into view when open */
+  }
+}
